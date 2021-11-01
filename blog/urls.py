@@ -58,5 +58,5 @@ urlpatterns = [
          name='password_reset_complete'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-handler404 = article.views.handler404
-handler500 = article.views.handler500
+# handler404 = article.views.handler404
+# handler500 = article.views.handler500

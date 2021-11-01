@@ -40,8 +40,12 @@
                 </li>
             </ul>
 
+            <div class="nav-hello" style="flex-direction:row;">
+                <p id="helloTime" style="color: #fff; font-weight:bold">
+                </p>
+            </div>
 
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" style="margin-left: 21px;">
                 <form class="d-flex" id="seacrh">
                     {% csrf_token %}
                     <span class="material-icons" style="cursor: pointer; color: white;" id="searchbtn" role="button">
@@ -78,3 +82,20 @@
     </div>
 </nav>
 <!-- navbar end -->
+
+
+<script type="text/javascript">
+    let navHello = document.getElementById("helloTime");
+    var day = new Date();
+    var hr = day.getHours();
+    if (hr >= 0 && hr < 12) {
+        navHello.innerHTML = "Günaydın, {{request.user.fullName}} "
+    } else if (hr == 12) {
+        document.write("Good Noon!");
+    } else if (hr >= 12 && hr <= 17) {
+        navHello.innerHTML = "Tünaydın, {{request.user.fullName}} "
+    } else {
+        navHello.innerHTML = "İyi Akşamlar, {{request.user.fullName}} "
+    }
+
+</script>

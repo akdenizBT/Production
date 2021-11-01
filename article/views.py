@@ -50,7 +50,7 @@ def index(request):
 
         return render(request, "articles.html", {"articles": articles})
 
-    week_ago = datetime.date.today() - datetime.timedelta(days=45)
+    week_ago = datetime.date.today() - datetime.timedelta(days=365)
     trends = Article.objects.filter(
         created_date__gte=week_ago).order_by('-read')
 
@@ -242,9 +242,9 @@ def sendArticle(request):
         return render(request, "sendArticle.html")
 
 
-def handler404(request):
-    return render(request, '404page.html', status=404)
+# def handler404(request):
+#     return render(request, '404page.html', status=404)
 
 
-def handler500(request):
-    return render(request, '404page.html', status=500)
+# def handler500(request):
+#     return render(request, '404page.html', status=500)
